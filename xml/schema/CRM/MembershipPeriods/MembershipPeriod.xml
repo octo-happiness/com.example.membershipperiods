@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+
+<table>
+  <base>CRM/MembershipPeriods</base>
+  <class>MembershipPeriod</class>
+  <name>civicrm_membershipperiod_membership_period</name>
+  <comment>Membership Period</comment>
+  <add>4.4</add>
+  <log>true</log>
+
+  <field>
+    <name>id</name>
+    <type>int unsigned</type>
+    <required>true</required>
+    <comment>Unique MembershipPeriod ID</comment>
+    <add>4.4</add>
+  </field>
+  <primaryKey>
+    <name>id</name>
+    <autoincrement>true</autoincrement>
+  </primaryKey>
+
+  <field>
+    <name>membership_id</name>
+    <type>int unsigned</type>
+    <required>true</required>
+    <comment>FK to Membership</comment>
+    <add>4.4</add>
+    <foreignKey>
+      <name>membership_id</name>
+      <table>civicrm_membership</table>
+      <key>id</key>
+      <add>4.4</add>
+      <onDelete>CASCADE</onDelete>
+    </foreignKey>
+  </field>
+
+  <field>
+    <name>contribution_id</name>
+    <type>int unsigned</type>
+    <required>false</required>
+    <comment>FK to Contribution</comment>
+    <add>4.4</add>
+    <foreignKey>
+      <name>contribution_id</name>
+      <table>civicrm_contribution</table>
+      <key>id</key>
+      <add>4.4</add>
+      <onDelete>SET NULL</onDelete>
+    </foreignKey>
+  </field>
+
+  <field>
+    <name>start_date</name>
+    <type>date</type>
+    <required>true</required>
+    <comment>Membership Period Start Date.</comment>
+    <add>4.4</add>
+  </field>
+
+  <field>
+    <name>end_date</name>
+    <type>date</type>
+    <required>false</required>
+    <comment>Membership Period End Date.</comment>
+    <add>4.4</add>
+  </field>
+
+</table>
